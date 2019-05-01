@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 # from django.utils import include
 
 urlpatterns = [
@@ -25,3 +27,7 @@ urlpatterns = [
 # active virtual env: source /venv/bin/activate
 # (venv)....$
 # to run server: python manage.py runserver <0:8000>
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)

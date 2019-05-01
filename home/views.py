@@ -4,5 +4,9 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, 'home/index.html', context={})
+    context = {
+        "name": "samip subedi",
+        "address": "pokhara"
+    }
+    return render(request, 'home/index.html', context)
     # return HttpResponse("<h2>Hello, We have done it..</h2>")
