@@ -2,9 +2,15 @@
 {% load staticfiles %}
 
 {% block content %}
-<div>
-    <p>This is from index.</p>
+<div class="container">
+    <p>List of my articles.</p>
+
+    {% for article in articles %}
+    <div class="my-3">
+        <h3>{{article.title}}</h3>
+        <p class="text-muted">{{article.date}}</p>
+        <p>{{article.content}}</p>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}
-
-
