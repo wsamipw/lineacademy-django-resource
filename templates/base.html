@@ -5,22 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block meta_links %}
+    {% endblock %}
     <!-- template tags -->
     {% load staticfiles %}
-    <title>Document</title>
+    <title>{% block title%}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block style_links %}
+    {% endblock %}
 </head>
 
 <body>
-    <!-- place header component here  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">TravelBoss</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div>
-        <h2>This is comming from base</h2>
-    </div>
-
-    <!-- this place is for other templates -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home:story' %}">Story</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home:contact' %}">Contact Me</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     {% block content  %}
     <!-- place footer component here -->
@@ -40,6 +58,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    {% block script_links %}
+
+    {% endblock %}
+    {% block scripts %}
+    {% endblock %}
 
 </body>
 
