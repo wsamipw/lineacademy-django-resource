@@ -28,6 +28,18 @@ class Hero(models.Model):
         return self.caption
 
 
+class Contact(models.Model):
+    full_name = models.CharField("Full Name", max_length=80)
+    email = models.EmailField("Email", max_length=254)
+    address = models.CharField(max_length=150)
+    phone_number = models.CharField(max_length=10)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    def __str__(self):
+        return self.full_name
+
+
 # class Tag(models.Model):
 #     name = models.CharField(max_length=100)
 

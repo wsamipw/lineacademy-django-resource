@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Hero
+from .models import Article, Hero, Contact
 # Register your models here.
 
 
@@ -22,5 +22,15 @@ class HeroModelAdmin(admin.ModelAdmin):
         model = Hero
 
 
+class ContactModelAdmin(admin.ModelAdmin):
+    list_display = ["__str__", "email", "address", "message", "timestamp"]
+    list_display_links = None
+    list_filter = ["timestamp"]
+
+    class Meta:
+        model = Contact
+
+
 admin.site.register(Article, ArticleModelAdmin)
 admin.site.register(Hero, HeroModelAdmin)
+admin.site.register(Contact, ContactModelAdmin)

@@ -3,6 +3,7 @@ from django.conf import settings
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
 from django.urls import reverse
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -22,7 +23,7 @@ class Story(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='story/', default='default.jpg')
     date = models.DateTimeField()
-    content = models.TextField()
+    content = RichTextUploadingField(default=None)
     draft = models.BooleanField(default=True)
 
     def __str__(self):

@@ -15,8 +15,9 @@
         <div class="col">
             <h3>{{instance.title}}</h3>
             <img src="{{instance.image.url}}" class="img-fluid" alt="{{instance.title}}">
-            <p class="text-muted">{{instance.date}} | {{instance.tag.name}}</p>
-            <p class="mt-3">{{instance.content}}</p>
+            <p class="text-muted">{{instance.date|date:"M"}}, {{instance.date.day}}, {{instance.date.year}} |
+                {{instance.tag.name}}</p>
+            <p class="mt-3">{{instance.content|safe}}</p>
         </div>
     </div>
 </div>
