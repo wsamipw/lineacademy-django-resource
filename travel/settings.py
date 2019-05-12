@@ -26,7 +26,7 @@ SECRET_KEY = '@z^y4)id09fgky!x38h8lj%(cg!g5+%#oiqj%-$34x%35@3$v7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEBUG_STATE
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = HOSTS
 
 
 # Application definition
@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'travel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': DB_ENGINE,
         'NAME': DB_NAME,
         'USER': DB_USER,
         'PASSWORD': DB_PASSWORD,
         'HOST': DB_HOST,
-        'PORT': DB_PORT,
+        'PORT': CUSTOM_PORT and DB_PORT,
     }
 }
 
