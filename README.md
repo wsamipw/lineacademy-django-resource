@@ -3,10 +3,11 @@
 This Repository contains full course materials for Full Stack Web Development
 
 **Initializing this project:**
+
 1. Clone/Download this repo.
 2. Create new virtual environment and activate it.
 3. Install required packages `pip install -r requirenments.txt`
-4. create `local_settings.py` along side `settings.py`  inside `travel` with following configuration:
+4. create `local_settings.py` along side `settings.py` inside `travel` with following configuration:
 
    ```
     DEBUG_STATE = True
@@ -18,8 +19,10 @@ This Repository contains full course materials for Full Stack Web Development
     CUSTOM_PORT = True
     DB_PORT = '5432'
     HOSTS = ['localhost']
-    ```
-    Make sure you have installed PostgreSQL. Check out official installation document as per your OS.
+   ```
+
+   Make sure you have installed PostgreSQL. Check out official installation document as per your OS.
+
 5. Run `python manage.py makemigrations` .
 6. Run `python manage.py migrate` .
 7. Finally start development server using `python manage.py runserver` .
