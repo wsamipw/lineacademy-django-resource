@@ -3,3 +3,5 @@ travel/local_settings.py
 *.pot
 *.pyc
 __pycache__/
+
+media/

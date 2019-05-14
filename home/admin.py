@@ -14,7 +14,7 @@ class ArticleModelAdmin(admin.ModelAdmin):
 
 
 class HeroModelAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "caption", "date"]
+    list_display = ["id", "__str__", "caption", "date"]
     list_display_links = ["__str__"]
     list_filter = ["date"]
 
@@ -23,7 +23,8 @@ class HeroModelAdmin(admin.ModelAdmin):
 
 
 class ContactModelAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "email", "address", "message", "timestamp"]
+    list_display = ["id", "__str__", "email",
+                    "address", "message", "timestamp"]
     list_display_links = None
     list_filter = ["timestamp"]
 

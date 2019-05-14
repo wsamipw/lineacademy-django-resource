@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block meta_links %}
+{% endblock %}
+{% block style_links %}
+
+{% endblock %}
+
+{% block title %}
+{% if update %} Hero-Update {% else %}Hero-Create{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col">
+            <h3>Create Hero Slider</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form method="POST" action="" accept-charset="utf-8" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" value="{% if form.image.value %}{{form.image.value}}{% endif %}"
+                        class="form-control" name="image" id="id_image">
+                </div>
+                <div class="my-2 image-holder">
+                    <img id="image_holder" src="{% if instance %}{{instance.image.url}} {%  endif %}"
+                        style="height: 50px;" alt="{{instance.caption}}">
+                </div>
+                <div class="form-group">
+                    <label for="caption">Caption</label>
+                    <input type="text" value="{% if form.caption.value %}{{form.caption.value}}{% endif %}"
+                        class="form-control" name="caption" id="id_caption" placeholder="Enter image caption">
+                </div>
+                <div class="form-group">
+                    <label for="sub_heading">Sub Heading</label>
+                    <input type="text" value="{% if form.sub_heading.value %}{{form.sub_heading.value}}{% endif %}"
+                        class="form-control" name="sub_heading" id="id_sub_heading" placeholder="Enter Sub Heading">
+                </div>
+                <button type="submit" class="btn btn-primary">{% if update %}Update {% else %} Submit
+                    {% endif %}</button>
+            </form>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-primary my-3" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script_links %}
+{% endblock %}
+{% block scripts %}
+
+<script>
+    $(document).ready(function () {
+        $('#id_image').on('change', function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image_holder').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        })
+    });
+</script>
+{% endblock %}

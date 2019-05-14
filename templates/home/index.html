@@ -12,19 +12,7 @@ Home
 
 {% block content %}
 <div class="container">
-    {% for hero in hero_list %}
-    <img src="{{hero.image.url}}" alt="{{hero.caption}}" class="img-fluid">
-    <span class="text-muted">{{forloop.counter}}. {{hero.caption}} | {{hero.date}} </span>
-    <p class="text-muted">{{hero.sub_heading}}</p>
-    {% endfor %}
-    <p>List of my articles.</p>
-    {% for article in articles %}
-    <div class="my-3">
-        <h3>{{article.title}}</h3>
-        <p class="text-muted">{{article.date}}</p>
-        <p>{{article.content}}</p>
-    </div>
-    {% endfor %}
+
 </div>
 {% endblock %}
 

@@ -1,0 +1,10 @@
+.image-holder {
+    border: 1px dashed lightgray;
+    border-radius: 5px;
+    height: 60px;
+    padding: 5px;
+}
+
+#id_image {
+    height: 45px !important;
+}
