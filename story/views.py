@@ -7,8 +7,10 @@ from .models import Story, Tag
 
 def story(request):
     story_list = Story.objects.all()
+    tag_list = Tag.objects.all()
     context = {
-        "story_list": story_list
+        "story_list": story_list,
+        "tag_list": tag_list
 
     }
     return render(request, 'story/story.html', context)
@@ -20,3 +22,14 @@ def story_detail(request, slug=None):
         "instance": instance
     }
     return render(request, 'story/story-detail.html', context)
+
+
+def story_tag(request, name=None):
+    story_list = Story.objects.filter(tag__name=name)
+    tag_list = Tag.objects.all()
+    context = {
+        "story_list": story_list,
+        "tag_list": tag_list,
+        "name": name
+    }
+    return render(request, 'story/tag-story.html', context)

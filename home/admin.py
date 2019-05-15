@@ -32,6 +32,7 @@ class ContactModelAdmin(admin.ModelAdmin):
         model = Contact
 
 
+admin.site.site_header = 'Travel Administration'
 admin.site.register(Article, ArticleModelAdmin)
 admin.site.register(Hero, HeroModelAdmin)
 admin.site.register(Contact, ContactModelAdmin)

@@ -14,6 +14,9 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse("story:tagStory", kwargs={"name": self.name})
+
 
 class Story(models.Model):
     title = models.CharField(max_length=200)

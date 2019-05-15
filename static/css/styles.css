@@ -8,3 +8,31 @@
 #id_image {
     height: 45px !important;
 }
+
+.tag-name {
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+
+}
+
+.tag-name:hover {
+    transform: translateX(5px);
+}
+
+.tag-name::before {
+    content: ">";
+    margin-right: 5px;
+}
+
+.tag-name a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.story-card {
+    transition: all ease-in-out 0.1s;
+}
+
+.story-card:hover {
+    transform: scale(1.01);
+}
